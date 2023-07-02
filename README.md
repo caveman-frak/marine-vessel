@@ -1,2 +1,2 @@
 # marine-vessel
-Marine vessel service
+Vessel service for Marine
