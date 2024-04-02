@@ -23,4 +23,8 @@
 hs_err_pid*
 replay_pid*
 build
-out
+/.idea/
+/out/
+/src/integrationTest/generated_tests/
+/src/main/generated/
+/src/test/generated_tests/
