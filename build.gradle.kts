@@ -21,3 +21,7 @@ testing {
         }
     }
 }
+
+application {
+    mainClass.set("uk.co.bluegecko.marine.vessel.VesselApplication")
+}
