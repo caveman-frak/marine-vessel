@@ -1,13 +1,13 @@
 package uk.co.bluegecko.marine.vessel;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
+import uk.co.bluegecko.marine.shared.application.AbstractApplication;
 
 @SpringBootApplication
-public class VesselApplication {
+public class VesselApplication extends AbstractApplication {
 
 	public static void main(String[] args) {
-		new SpringApplicationBuilder(VesselApplication.class).registerShutdownHook(true).run(args);
+		run(VesselApplication.class, args);
 	}
 
 }
