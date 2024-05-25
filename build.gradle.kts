@@ -7,9 +7,6 @@ plugins {
 dependencies {
     implementation(project(":shared"))
     implementation(project(":wire"))
-    testImplementation(project(":test"))
-    runtimeOnly("org.liquibase:liquibase-core")
-    runtimeOnly("com.h2database:h2")
 }
 
 jooq {
@@ -59,11 +56,13 @@ jooq {
 
 testing {
     suites {
-        val integrationTest by getting(JvmTestSuite::class) {
+        withType<JvmTestSuite> {
             dependencies {
                 implementation(project(":shared"))
                 implementation(project(":wire"))
                 implementation(project(":test"))
+                implementation(testFixtures(project(":shared")))
+                implementation(testFixtures(project(":wire")))
             }
         }
     }
