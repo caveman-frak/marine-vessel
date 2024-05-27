@@ -30,7 +30,7 @@ jooq {
                     // if a matching setter is found
                     property {
                         key = "database.liquibaseSchemaName"
-                        value = "lb"
+                        value = "public"
                     }
                     // The property "changeLogParameters.contexts" will be passed on to the
                     // liquibase.database.Database.update() call (jOOQ 3.13.2+).
@@ -46,7 +46,7 @@ jooq {
                 isJavaTimeTypes = true
             }
             target {
-                packageName = "uk,co.bluegecko.marine.vessel.data.jooq"
+                packageName = "uk.co.bluegecko.marine.vessel.data.jooq"
                 directory = "src/main/generated"
                 isClean = true
             }
