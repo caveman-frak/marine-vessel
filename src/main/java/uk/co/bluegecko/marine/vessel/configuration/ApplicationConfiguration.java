@@ -1,4 +1,4 @@
-package uk.co.bluegecko.marine.vessel.config;
+package uk.co.bluegecko.marine.vessel.configuration;
 
 import static org.apache.commons.text.WordUtils.capitalizeFully;
 
