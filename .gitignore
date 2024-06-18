@@ -21,10 +21,21 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-replay_pid*
+
+# Gradle project-specific cache directory
+.gradle
+
+# Gradle build output directory
 build
-/.idea/
 /out/
-/src/integrationTest/generated_tests/
-/src/main/generated/
-/src/test/generated_tests/
+
+# IDE
+/.idea/
+
+# Generated source files
+**/generated_tests/
+**/generated/
+**/output.css
+
+# Application pid/port files
+/application*.*
