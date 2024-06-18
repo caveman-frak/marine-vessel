@@ -13,12 +13,16 @@ import lombok.Builder.Default;
 import lombok.NonNull;
 import lombok.Singular;
 import lombok.Value;
+import lombok.experimental.FieldNameConstants;
 import org.hibernate.validator.constraints.Length;
+import uk.co.bluegecko.marine.shared.utility.Identified;
+import uk.co.bluegecko.marine.shared.utility.Named;
 
 @Value
 @Builder
-@Schema(description = "A vessel")
-public class Vessel {
+@Schema(description = "Representation of a standard vessel")
+@FieldNameConstants
+public class Vessel implements Identified<UUID>, Named {
 
 	@Schema(name = "id", title = "Identity", description = "Internal identity of vessel")
 	@NonNull

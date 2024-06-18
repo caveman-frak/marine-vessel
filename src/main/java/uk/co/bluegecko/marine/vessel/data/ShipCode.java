@@ -29,109 +29,113 @@ import static uk.co.bluegecko.marine.vessel.data.ShipType.TENDER;
 import static uk.co.bluegecko.marine.vessel.data.ShipType.TUG;
 import static uk.co.bluegecko.marine.vessel.data.ShipType.WIG;
 
+import java.util.Optional;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import uk.co.bluegecko.marine.shared.utility.enums.Described;
+import lombok.experimental.FieldDefaults;
+import uk.co.bluegecko.marine.shared.utility.Described;
 import uk.co.bluegecko.marine.shared.utility.enums.Identified;
 
-@RequiredArgsConstructor
 @Getter
+@RequiredArgsConstructor
+@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public enum ShipCode implements Identified<ShipCode>, Described {
-	CODE_20(20, "Wing in Ground (WIG), All ships in class", ALL, WIG),
-	CODE_21(21, "Wing in Ground (WIG), Hazard Category A", CATEGORY_A, WIG),
-	CODE_22(22, "Wing in Ground (WIG), Hazard Category B", CATEGORY_B, WIG),
-	CODE_23(23, "Wing in Ground (WIG), Hazard Category C", CATEGORY_C, WIG),
-	CODE_24(24, "Wing in Ground (WIG), Hazard Category D", CATEGORY_D, WIG),
-	CODE_25(25, "Wing in Ground (WIG), Reserved", RESERVED, WIG),
-	CODE_26(26, "Wing in Ground (WIG), Reserved", RESERVED, WIG),
-	CODE_27(27, "Wing in Ground (WIG), Reserved", RESERVED, WIG),
-	CODE_28(28, "Wing in Ground (WIG), Reserved", RESERVED, WIG),
-	CODE_29(29, "Wing in Ground (WIG), No additional information", NO_INFORMATION, WIG),
+	CODE_20(20, WIG, ALL, "Wing in Ground (WIG), All ships in class"),
+	CODE_21(21, WIG, CATEGORY_A, "Wing in Ground (WIG), Hazard Category A"),
+	CODE_22(22, WIG, CATEGORY_B, "Wing in Ground (WIG), Hazard Category B"),
+	CODE_23(23, WIG, CATEGORY_C, "Wing in Ground (WIG), Hazard Category C"),
+	CODE_24(24, WIG, CATEGORY_D, "Wing in Ground (WIG), Hazard Category D"),
+	CODE_25(25, WIG, RESERVED, "Wing in Ground (WIG), Reserved"),
+	CODE_26(26, WIG, RESERVED, "Wing in Ground (WIG), Reserved"),
+	CODE_27(27, WIG, RESERVED, "Wing in Ground (WIG), Reserved"),
+	CODE_28(28, WIG, RESERVED, "Wing in Ground (WIG), Reserved"),
+	CODE_29(29, WIG, NO_INFORMATION, "Wing in Ground (WIG), No additional information"),
 
-	CODE_30(30, "Fishing", NONE, FISHING),
-	CODE_31(31, "Towing", NONE, TUG),
-	CODE_32(32, "Towing", NONE, TUG),
-	CODE_33(33, "Dredging or underwater ops", NONE, DREDGER),
-	CODE_34(34, "Diving ops", NONE, DIVE),
-	CODE_35(35, "Military Ops", NONE, MILITARY),
-	CODE_36(36, "Sailing", NONE, SAILING),
-	CODE_37(37, "Pleasure Craft", NONE, PLEASURE),
-	CODE_38(38, "Reserved", RESERVED, OTHER),
-	CODE_39(39, "Reserved", RESERVED, OTHER),
+	CODE_30(30, FISHING, NONE, "Fishing"),
+	CODE_31(31, TUG, NONE, "Towing"),
+	CODE_32(32, TUG, NONE, "Towing"),
+	CODE_33(33, DREDGER, NONE, "Dredging or underwater ops"),
+	CODE_34(34, DIVE, NONE, "Diving ops"),
+	CODE_35(35, MILITARY, NONE, "Military Ops"),
+	CODE_36(36, SAILING, NONE, "Sailing"),
+	CODE_37(37, PLEASURE, NONE, "Pleasure Craft"),
+	CODE_38(38, OTHER, RESERVED, "Reserved"),
+	CODE_39(39, OTHER, RESERVED, "Reserved"),
 
-	CODE_40(40, "High Speed Craft, All ships in class", ALL, HIGH_SPEED),
-	CODE_41(41, "High Speed Craft, Hazard Category A", CATEGORY_A, HIGH_SPEED),
-	CODE_42(42, "High Speed Craft, Hazard Category B", CATEGORY_B, HIGH_SPEED),
-	CODE_43(43, "High Speed Craft, Hazard Category C", CATEGORY_C, HIGH_SPEED),
-	CODE_44(44, "High Speed Craft, Hazard Category D", CATEGORY_D, HIGH_SPEED),
-	CODE_45(45, "High Speed Craft, Reserved", RESERVED, HIGH_SPEED),
-	CODE_46(46, "High Speed Craft, Reserved", RESERVED, HIGH_SPEED),
-	CODE_47(47, "High Speed Craft, Reserved", RESERVED, HIGH_SPEED),
-	CODE_48(48, "High Speed Craft, Reserved", RESERVED, HIGH_SPEED),
-	CODE_49(49, "High Speed Craft, No additional information", NO_INFORMATION, HIGH_SPEED),
+	CODE_40(40, HIGH_SPEED, ALL, "High Speed Craft, All ships in class"),
+	CODE_41(41, HIGH_SPEED, CATEGORY_A, "High Speed Craft, Hazard Category A"),
+	CODE_42(42, HIGH_SPEED, CATEGORY_B, "High Speed Craft, Hazard Category B"),
+	CODE_43(43, HIGH_SPEED, CATEGORY_C, "High Speed Craft, Hazard Category C"),
+	CODE_44(44, HIGH_SPEED, CATEGORY_D, "High Speed Craft, Hazard Category D"),
+	CODE_45(45, HIGH_SPEED, RESERVED, "High Speed Craft, Reserved"),
+	CODE_46(46, HIGH_SPEED, RESERVED, "High Speed Craft, Reserved"),
+	CODE_47(47, HIGH_SPEED, RESERVED, "High Speed Craft, Reserved"),
+	CODE_48(48, HIGH_SPEED, RESERVED, "High Speed Craft, Reserved"),
+	CODE_49(49, HIGH_SPEED, NO_INFORMATION, "High Speed Craft, No additional information"),
 
-	CODE_50(50, "Pilot Vesse;", NONE, PILOT),
-	CODE_51(51, "Search and Rescue Vessel", NONE, SEARCH_RESCUE),
-	CODE_52(52, "Tug", NONE, TUG),
-	CODE_53(53, "Port Tender", NONE, TENDER),
-	CODE_54(54, "Anti-pollution Equipment", NONE, ANTI_POLLUTION),
-	CODE_55(55, "Law Enforcement", NONE, LAW_ENFORCEMENT),
-	CODE_56(56, "Spare - Local Vessel", NONE, OTHER),
-	CODE_57(57, "Spare - Local Vessel", NONE, OTHER),
-	CODE_58(58, "Medical Transport", NONE, MEDICAL),
-	CODE_59(59, "Non-Combatant Ship", NONE, SPECIAL),
+	CODE_50(50, PILOT, NONE, "Pilot Vesse;"),
+	CODE_51(51, SEARCH_RESCUE, NONE, "Search and Rescue Vessel"),
+	CODE_52(52, TUG, NONE, "Tug"),
+	CODE_53(53, TENDER, NONE, "Port Tender"),
+	CODE_54(54, ANTI_POLLUTION, NONE, "Anti-pollution Equipment"),
+	CODE_55(55, LAW_ENFORCEMENT, NONE, "Law Enforcement"),
+	CODE_56(56, OTHER, NONE, "Spare - Local Vessel"),
+	CODE_57(57, OTHER, NONE, "Spare - Local Vessel"),
+	CODE_58(58, MEDICAL, NONE, "Medical Transport"),
+	CODE_59(59, SPECIAL, NONE, "Non-Combatant Ship"),
 
-	CODE_60(60, "Passenger, All ships in class", ALL, PASSENGER),
-	CODE_61(61, "Passenger, Hazard Category A", CATEGORY_A, PASSENGER),
-	CODE_62(62, "Passenger, Hazard Category B", CATEGORY_B, PASSENGER),
-	CODE_63(63, "Passenger, Hazard Category C", CATEGORY_C, PASSENGER),
-	CODE_64(64, "Passenger, Hazard Category D", CATEGORY_D, PASSENGER),
-	CODE_65(65, "Passenger, Reserved", RESERVED, PASSENGER),
-	CODE_66(66, "Passenger, Reserved", RESERVED, PASSENGER),
-	CODE_67(67, "Passenger, Reserved", RESERVED, PASSENGER),
-	CODE_68(68, "Passenger, Reserved", RESERVED, PASSENGER),
-	CODE_69(69, "Passenger, No additional information", NO_INFORMATION, PASSENGER),
+	CODE_60(60, PASSENGER, ALL, "Passenger, All ships in class"),
+	CODE_61(61, PASSENGER, CATEGORY_A, "Passenger, Hazard Category A"),
+	CODE_62(62, PASSENGER, CATEGORY_B, "Passenger, Hazard Category B"),
+	CODE_63(63, PASSENGER, CATEGORY_C, "Passenger, Hazard Category C"),
+	CODE_64(64, PASSENGER, CATEGORY_D, "Passenger, Hazard Category D"),
+	CODE_65(65, PASSENGER, RESERVED, "Passenger, Reserved"),
+	CODE_66(66, PASSENGER, RESERVED, "Passenger, Reserved"),
+	CODE_67(67, PASSENGER, RESERVED, "Passenger, Reserved"),
+	CODE_68(68, PASSENGER, RESERVED, "Passenger, Reserved"),
+	CODE_69(69, PASSENGER, NO_INFORMATION, "Passenger, No additional information"),
 
-	CODE_70(70, "Cargo, All ships in class", ALL, CARGO),
-	CODE_71(71, "Cargo, Hazard Category A", CATEGORY_A, CARGO),
-	CODE_72(72, "Cargo, Hazard Category B", CATEGORY_B, CARGO),
-	CODE_73(73, "Cargo, Hazard Category C", CATEGORY_C, CARGO),
-	CODE_74(74, "Cargo, Hazard Category D", CATEGORY_D, CARGO),
-	CODE_75(75, "Cargo, Reserved", RESERVED, CARGO),
-	CODE_76(76, "Cargo, Reserved", RESERVED, CARGO),
-	CODE_77(77, "Cargo, Reserved", RESERVED, CARGO),
-	CODE_78(78, "Cargo, Reserved", RESERVED, CARGO),
-	CODE_79(79, "Cargo, No additional information", NO_INFORMATION, CARGO),
+	CODE_70(70, CARGO, ALL, "Cargo, All ships in class"),
+	CODE_71(71, CARGO, CATEGORY_A, "Cargo, Hazard Category A"),
+	CODE_72(72, CARGO, CATEGORY_B, "Cargo, Hazard Category B"),
+	CODE_73(73, CARGO, CATEGORY_C, "Cargo, Hazard Category C"),
+	CODE_74(74, CARGO, CATEGORY_D, "Cargo, Hazard Category D"),
+	CODE_75(75, CARGO, RESERVED, "Cargo, Reserved"),
+	CODE_76(76, CARGO, RESERVED, "Cargo, Reserved"),
+	CODE_77(77, CARGO, RESERVED, "Cargo, Reserved"),
+	CODE_78(78, CARGO, RESERVED, "Cargo, Reserved"),
+	CODE_79(79, CARGO, NO_INFORMATION, "Cargo, No additional information"),
 
-	CODE_80(80, "Tanker, All ships in class", ALL, TANKER),
-	CODE_81(81, "Tanker, Hazard Category A", CATEGORY_A, TANKER),
-	CODE_82(82, "Tanker, Hazard Category B", CATEGORY_B, TANKER),
-	CODE_83(83, "Tanker, Hazard Category C", CATEGORY_C, TANKER),
-	CODE_84(84, "Tanker, Hazard Category D", CATEGORY_D, TANKER),
-	CODE_85(85, "Tanker, Reserved", RESERVED, TANKER),
-	CODE_86(86, "Tanker, Reserved", RESERVED, TANKER),
-	CODE_87(87, "Tanker, Reserved", RESERVED, TANKER),
-	CODE_88(88, "Tanker, Reserved", RESERVED, TANKER),
-	CODE_89(89, "Tanker, No additional information", NO_INFORMATION, TANKER),
+	CODE_80(80, TANKER, ALL, "Tanker, All ships in class"),
+	CODE_81(81, TANKER, CATEGORY_A, "Tanker, Hazard Category A"),
+	CODE_82(82, TANKER, CATEGORY_B, "Tanker, Hazard Category B"),
+	CODE_83(83, TANKER, CATEGORY_C, "Tanker, Hazard Category C"),
+	CODE_84(84, TANKER, CATEGORY_D, "Tanker, Hazard Category D"),
+	CODE_85(85, TANKER, RESERVED, "Tanker, Reserved"),
+	CODE_86(86, TANKER, RESERVED, "Tanker, Reserved"),
+	CODE_87(87, TANKER, RESERVED, "Tanker, Reserved"),
+	CODE_88(88, TANKER, RESERVED, "Tanker, Reserved"),
+	CODE_89(89, TANKER, NO_INFORMATION, "Tanker, No additional information"),
 
-	CODE_90(90, "Other, All ships in class", ALL, OTHER),
-	CODE_91(91, "Other, Hazard Category A", CATEGORY_A, OTHER),
-	CODE_92(92, "Other, Hazard Category B", CATEGORY_B, OTHER),
-	CODE_93(93, "Other, Hazard Category C", CATEGORY_C, OTHER),
-	CODE_94(94, "Other, Hazard Category D", CATEGORY_D, OTHER),
-	CODE_95(95, "Other, Reserved", RESERVED, OTHER),
-	CODE_96(96, "Other, Reserved", RESERVED, OTHER),
-	CODE_97(97, "Other, Reserved", RESERVED, OTHER),
-	CODE_98(98, "Other, Reserved", RESERVED, OTHER),
-	CODE_99(99, "Other, No additional information", NO_INFORMATION, OTHER);
+	CODE_90(90, OTHER, ALL, "Other, All ships in class"),
+	CODE_91(91, OTHER, CATEGORY_A, "Other, Hazard Category A"),
+	CODE_92(92, OTHER, CATEGORY_B, "Other, Hazard Category B"),
+	CODE_93(93, OTHER, CATEGORY_C, "Other, Hazard Category C"),
+	CODE_94(94, OTHER, CATEGORY_D, "Other, Hazard Category D"),
+	CODE_95(95, OTHER, RESERVED, "Other, Reserved"),
+	CODE_96(96, OTHER, RESERVED, "Other, Reserved"),
+	CODE_97(97, OTHER, RESERVED, "Other, Reserved"),
+	CODE_98(98, OTHER, RESERVED, "Other, Reserved"),
+	CODE_99(99, OTHER, NO_INFORMATION, "Other, No additional information");
 
-	private final int id;
-	private final String description;
-	private final Hazard hazard;
-	private final ShipType shipType;
+	Integer id;
+	ShipType shipType;
+	Hazard hazard;
+	String description;
 
-	@Override
-	public ShipCode fromId(int id) {
-		return ShipCode.values()[id - 20];
+	public static Optional<ShipCode> fromId(int id) {
+		return Identified.fromId(ShipCode.values(), id, 20);
 	}
+
 }

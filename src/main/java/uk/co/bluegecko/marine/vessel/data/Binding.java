@@ -1,5 +1,10 @@
 package uk.co.bluegecko.marine.vessel.data;
 
-public class Binding {
+import java.util.UUID;
+
+public record Binding(
+		UUID vesselId,
+		String field,
+		Data data) {
 
 }

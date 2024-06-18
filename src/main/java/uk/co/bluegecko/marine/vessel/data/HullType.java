@@ -1,11 +1,14 @@
 package uk.co.bluegecko.marine.vessel.data;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import uk.co.bluegecko.marine.shared.utility.enums.Described;
+import lombok.experimental.FieldDefaults;
+import uk.co.bluegecko.marine.shared.utility.Described;
 
 @RequiredArgsConstructor
 @Getter
+@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public enum HullType implements Described {
 	S("Single Hull"),
 	D("Double Hull"),
@@ -20,5 +23,5 @@ public enum HullType implements Described {
 	UNKNOWN("Unknown"),
 	UNSPECIFIED("Unspecified");
 
-	private final String description;
+	String description;
 }

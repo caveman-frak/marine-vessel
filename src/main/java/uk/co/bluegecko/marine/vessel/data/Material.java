@@ -1,11 +1,14 @@
 package uk.co.bluegecko.marine.vessel.data;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import uk.co.bluegecko.marine.shared.utility.enums.Described;
+import lombok.experimental.FieldDefaults;
+import uk.co.bluegecko.marine.shared.utility.Described;
 
-@RequiredArgsConstructor
 @Getter
+@RequiredArgsConstructor
+@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public enum Material implements Described {
 	ST("Steel (Unspecified)"),
 	AL("Aluminium Alloy"),
@@ -23,5 +26,5 @@ public enum Material implements Described {
 	RL("Rubber Lined"),
 	UNKNOWN("Unknown");
 
-	private final String description;
+	String description;
 }

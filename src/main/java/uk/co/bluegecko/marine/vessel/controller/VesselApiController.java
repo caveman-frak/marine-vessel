@@ -2,6 +2,7 @@ package uk.co.bluegecko.marine.vessel.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -29,6 +30,7 @@ import uk.co.bluegecko.marine.wire.geo.Country;
 @Value
 @RestController
 @RequestMapping(path = "/vessel", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+@Tag(name = "Vessel", description = "API for vessel details")
 public class VesselApiController {
 
 	VesselService service;

@@ -3,12 +3,16 @@ package uk.co.bluegecko.marine.vessel.data;
 import static uk.co.bluegecko.marine.vessel.data.Identifier.Validators.simple;
 
 import java.util.function.Predicate;
-import lombok.AllArgsConstructor;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
+import uk.co.bluegecko.marine.shared.utility.Named;
 
 @Getter
-@AllArgsConstructor
-public enum Identifier {
+@RequiredArgsConstructor
+@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
+public enum Identifier implements Named {
 
 	IMO("International Maritime Organisation", simple()),
 	MMSI("Maritime Mobile Service Identity", simple()),
@@ -16,13 +20,14 @@ public enum Identifier {
 	HIN("Hull Identification Number", simple()),
 	SAIL("Sail Number", simple());
 
-	private final String name;
-	private final Predicate<String> validator;
+	String name;
+	Predicate<String> validator;
 
 	protected static final class Validators {
 
 		static Predicate<String> simple() {
 			return v -> true;
 		}
+
 	}
 }
