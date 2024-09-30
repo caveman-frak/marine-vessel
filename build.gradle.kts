@@ -3,19 +3,12 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":shared"))
-    implementation(project(":wire"))
 }
 
 testing {
     suites {
         withType<JvmTestSuite> {
             dependencies {
-                implementation(project(":shared"))
-                implementation(project(":wire"))
-                implementation(project(":test"))
-                implementation(testFixtures(project(":shared")))
-                implementation(testFixtures(project(":wire")))
             }
         }
     }
