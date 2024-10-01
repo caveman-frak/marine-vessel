@@ -40,7 +40,7 @@ import uk.co.bluegecko.marine.shared.utility.enums.Identified;
 @Getter
 @RequiredArgsConstructor
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public enum ShipCode implements Identified<ShipCode>, Described {
+public enum ShipCode implements Identified<ShipCode, Integer>, Described {
 	CODE_20(20, WIG, ALL, "Wing in Ground (WIG), All ships in class"),
 	CODE_21(21, WIG, CATEGORY_A, "Wing in Ground (WIG), Hazard Category A"),
 	CODE_22(22, WIG, CATEGORY_B, "Wing in Ground (WIG), Hazard Category B"),
@@ -135,7 +135,7 @@ public enum ShipCode implements Identified<ShipCode>, Described {
 	String description;
 
 	public static Optional<ShipCode> fromId(int id) {
-		return Identified.fromId(ShipCode.values(), id, 20);
+		return Identified.fromOffset(ShipCode.values(), id, 20);
 	}
 
 }
