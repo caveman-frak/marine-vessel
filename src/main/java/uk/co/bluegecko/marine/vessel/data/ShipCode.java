@@ -36,12 +36,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import uk.co.bluegecko.marine.shared.utility.Contiguous;
 import uk.co.bluegecko.marine.shared.utility.Described;
-import uk.co.bluegecko.marine.shared.utility.enums.Identified;
 
 @Getter
 @RequiredArgsConstructor
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public enum ShipCode implements Identified<ShipCode, Integer>, Contiguous, Described {
+public enum ShipCode implements Contiguous, Described {
 	CODE_20(20, WIG, ALL, "Wing in Ground (WIG), All ships in class"),
 	CODE_21(21, WIG, CATEGORY_A, "Wing in Ground (WIG), Hazard Category A"),
 	CODE_22(22, WIG, CATEGORY_B, "Wing in Ground (WIG), Hazard Category B"),
